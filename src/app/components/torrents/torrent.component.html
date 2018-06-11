@@ -3,8 +3,6 @@
 
 <br>
 <br>
-<br>
-<br>
 
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Search</a></li>
@@ -20,15 +18,15 @@
         <form>
             <div class="form-group">
                 <br><br>
-                <input class="form-control" id="searchbox" (keyup)="search2()" name="searchTerm" [(ngModel)]="searchTerm" type="text" placeholder="Search torrents...">
+                <input #searchKeyword class="form-control" id="searchbox" (keyup)="search2()" name="searchTerm" [(ngModel)]="searchTerm" type="text" placeholder="Search torrents...">
                 <br>
                 <!-- <button (keyup)="search2($event)" class="btn btn-primary">Search</button> -->
             </div>
         </form>
         <br><br>
-        <div *ngIf="searchTorrents">
+        <div *ngIf="searchKeyword.value.length > 0">
             <div *ngFor="let searchResponse of searchTorrents">
-                <div class="panel panel-info">
+                <div class="panel panel-danger">
                     <div class="panel-heading">
                         <h2 class="panel-title">
                             {{searchResponse.title}}
@@ -40,19 +38,29 @@
                             <span> {{searchResponse.category}}</span>
                         </h4>
                         <h4>
-                            <fa name="magnet"></fa> Magnet:
+                            <fa style="color:green" name="magnet"></fa> Magnet:
                             <span> <a href="{{searchResponse.magnet}}" class="btn btn-primary">Magnet Link</a></span>
                         </h4>
                         <h4>
-                            <fa name="users"></fa> Seeds:
+                            <fa style="color:rgb(204, 0, 255)" name="archive"></fa> Size:
+                            <span> {{searchResponse.size }}</span>
+                        </h4>
+                        <h4>
+                            <fa style="color:blue" name="users"></fa>
+                            <fa style="color:blue" name="arrow-up"></fa> Seeders:
                             <span> {{searchResponse.seeds}}</span>
                         </h4>
                         <h4>
-                            <fa name="upload"></fa> Uploaded at:
+                            <fa style="color:red" name="users"></fa>
+                            <fa style="color:red" name="arrow-down"></fa> Leechers:
+                            <span> {{searchResponse.leeches}}</span>
+                        </h4>
+                        <h4>
+                            <fa style="color:rgb(174, 0, 255)" name="upload"></fa> Uploaded at:
                             <span> {{searchResponse.time}}</span>
                         </h4>
                         <h4>
-                            <fa name="user"></fa> Uploader:
+                            <fa style="color:rgb(52, 77, 74)" name="user"></fa> Uploader:
                             <span> {{searchResponse.uploader}}</span>
                         </h4>
                     </div>
@@ -70,7 +78,7 @@
                 <a class="thumbnail" (click)="getTorrents()">
                     <div class="caption">
                         <h3>
-                            <fa name="tv" style="color:orangered"></fa> Display Recent Torrents
+                            <fa name="refresh" style="color:orangered"></fa> Refresh Recent Torrents
                         </h3>
                     </div>
                 </a>
@@ -79,7 +87,7 @@
 
         <div *ngIf="torrents">
             <div *ngFor="let torrent of torrents">
-                <div class="panel panel-info">
+                <div class="panel panel-danger">
                     <div class="panel-heading">
                         <h2 class="panel-title">
                             {{torrent.title}}
@@ -91,19 +99,19 @@
                             <span> {{torrent.category}}</span>
                         </h4>
                         <h4>
-                            <fa name="magnet"></fa> Magnet:
+                            <fa style="color:red" name="magnet"></fa> Magnet:
                             <span> <a href="{{torrent.magnet}}" class="btn btn-primary">Magnet Link</a></span>
                         </h4>
                         <h4>
-                            <fa name="users"></fa> Seeds:
+                            <fa style="color:red" name="users"></fa> Seeds:
                             <span> {{torrent.seeds}}</span>
                         </h4>
                         <h4>
-                            <fa name="upload"></fa> Uploaded at:
+                            <fa style="color:red" name="upload"></fa> Uploaded at:
                             <span> {{torrent.time}}</span>
                         </h4>
                         <h4>
-                            <fa name="user"></fa> Uploader:
+                            <fa style="color:red" name="user"></fa> Uploader:
                             <span> {{torrent.uploader}}</span>
                         </h4>
                     </div>
@@ -193,7 +201,7 @@
 
         <div *ngIf="topTorrents">
             <div *ngFor="let topTorrent of topTorrents">
-                <div class="panel panel-info">
+                <div class="panel panel-danger">
                     <div class="panel-heading">
                         <h2 class="panel-title">
                             {{topTorrent.title}}
@@ -205,19 +213,19 @@
                             <span> {{topTorrent.category}}</span>
                         </h4>
                         <h4>
-                            <fa name="magnet"></fa> Magnet:
+                            <fa style="color:red" name="magnet"></fa> Magnet:
                             <span> <a href="{{topTorrent.magnet}}" class="btn btn-primary">Magnet Link</a></span>
                         </h4>
                         <h4>
-                            <fa name="users"></fa> Seeds:
+                            <fa style="color:red" name="users"></fa> Seeds:
                             <span> {{topTorrent.seeds}}</span>
                         </h4>
                         <h4>
-                            <fa name="upload"></fa> Uploaded at:
+                            <fa style="color:red" name="upload"></fa> Uploaded at:
                             <span> {{topTorrent.time}}</span>
                         </h4>
                         <h4>
-                            <fa name="user"></fa> Uploader:
+                            <fa style="color:red" name="user"></fa> Uploader:
                             <span> {{topTorrent.uploader}}</span>
                         </h4>
                     </div>
@@ -304,7 +312,7 @@
 
         <div *ngIf="top40Torrents">
             <div *ngFor="let top40Torrent of top40Torrents">
-                <div class="panel panel-info">
+                <div class="panel panel-danger">
                     <div class="panel-heading">
                         <h2 class="panel-title">
                             {{top40Torrent.title}}
@@ -316,19 +324,19 @@
                             <span> {{top40Torrent.category}}</span>
                         </h4>
                         <h4>
-                            <fa name="magnet"></fa> Magnet:
+                            <fa style="color:red" name="magnet"></fa> Magnet:
                             <span> <a href="{{top40Torrent.magnet}}" class="btn btn-primary">Magnet Link</a></span>
                         </h4>
                         <h4>
-                            <fa name="users"></fa> Seeds:
+                            <fa style="color:red" name="users"></fa> Seeds:
                             <span> {{top40Torrent.seeds}}</span>
                         </h4>
                         <h4>
-                            <fa name="upload"></fa> Uploaded at:
+                            <fa style="color:red" name="upload"></fa> Uploaded at:
                             <span> {{top40Torrent.time}}</span>
                         </h4>
                         <h4>
-                            <fa name="user"></fa> Uploader:
+                            <fa style="color:red" name="user"></fa> Uploader:
                             <span> {{top40Torrent.uploader}}</span>
                         </h4>
                     </div>

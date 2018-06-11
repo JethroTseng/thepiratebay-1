@@ -13,6 +13,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DisplayComponent } from './components/display/display.component';
+import {JsonpModule, Jsonp, Response} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DisplayComponent } from './components/display/display.component';
   ],
   imports: [
     BrowserModule,
+    JsonpModule,
     AngularFontAwesomeModule,
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
