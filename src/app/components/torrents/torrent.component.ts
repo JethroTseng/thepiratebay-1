@@ -24,7 +24,7 @@ searchTerm: string;
   constructor(private _jsonp: Jsonp, private _piratebay: PiratebayService) {}
 
   ngOnInit() {
-    // this.getTorrents();
+    this.getTorrents();
   }
 
   /* getTorrents() {
