@@ -34,33 +34,31 @@
                     </div>
                     <div class="panel-body">
                         <h4>
-                            <fa style="color:red" name="bars"></fa> Category:
+                            <fa style="color:rgb(241, 76, 76)" name="bars"></fa> Category:
                             <span> {{searchResponse.category}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:green" name="magnet"></fa> Magnet:
-                            <span> <a href="{{searchResponse.magnet}}" class="btn btn-primary">Magnet Link</a></span>
+                            <fa style="color:rgb(128, 190, 128)" name="magnet"></fa> Magnet:
+                            <span> <a href="{{searchResponse.magnet | stripunsafe}}" class="btn btn-primary">Magnet Link</a></span>
                         </h4>
                         <h4>
-                            <fa style="color:rgb(204, 0, 255)" name="archive"></fa> Size:
-                            <span> {{searchResponse.size }}</span>
+                            <fa style="color:rgb(241, 76, 76)" name="archive"></fa> Size:
+                            <span> {{searchResponse.size | convert }}</span>
                         </h4>
                         <h4>
-                            <fa style="color:blue" name="users"></fa>
-                            <fa style="color:blue" name="arrow-up"></fa> Seeders:
+                            <fa style="color:rgb(241, 76, 76)" name="arrow-up"></fa> Seeders:
                             <span> {{searchResponse.seeds}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="users"></fa>
-                            <fa style="color:red" name="arrow-down"></fa> Leechers:
+                            <fa style="color:rgb(241, 76, 76)" name="arrow-down"></fa> Leechers:
                             <span> {{searchResponse.leeches}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:rgb(174, 0, 255)" name="upload"></fa> Uploaded at:
+                            <fa style="color:rgb(241, 76, 76)" name="upload"></fa> Uploaded at:
                             <span> {{searchResponse.time}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:rgb(52, 77, 74)" name="user"></fa> Uploader:
+                            <fa style="color:rgb(241, 76, 76)" name="user"></fa> Uploader:
                             <span> {{searchResponse.uploader}}</span>
                         </h4>
                     </div>
@@ -95,23 +93,31 @@
                     </div>
                     <div class="panel-body">
                         <h4>
-                            <fa style="color:red" name="bars"></fa> Category:
+                            <fa style="color:rgb(241, 76, 76)" name="bars"></fa> Category:
                             <span> {{torrent.category}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="magnet"></fa> Magnet:
+                            <fa style="color:rgb(128, 190, 128)" name="magnet"></fa> Magnet:
                             <span> <a href="{{torrent.magnet}}" class="btn btn-primary">Magnet Link</a></span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="users"></fa> Seeds:
+                            <fa style="color:rgb(241, 76, 76)" name="archive"></fa> Size:
+                            <span> {{torrent.size | convert}}</span>
+                        </h4>
+                        <h4>
+                            <fa style="color:rgb(241, 76, 76)" name="arrow-up"></fa> Seeders:
                             <span> {{torrent.seeds}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="upload"></fa> Uploaded at:
+                            <fa style="color:rgb(241, 76, 76)" name="arrow-down"></fa> Leechers:
+                            <span> {{torrent.leeches}}</span>
+                        </h4>
+                        <h4>
+                            <fa style="color:rgb(241, 76, 76)" name="upload"></fa> Uploaded at:
                             <span> {{torrent.time}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="user"></fa> Uploader:
+                            <fa style="color:rgb(241, 76, 76)" name="user"></fa> Uploader:
                             <span> {{torrent.uploader}}</span>
                         </h4>
                     </div>
@@ -160,7 +166,7 @@
                 <a class="thumbnail" (click)="getTopTorrents(300)">
                     <div class="caption">
                         <h3>
-                            <fa name="rocket" style="color: red;"></fa> Applications
+                            <fa name="rocket" style="color: rgb(241, 76, 76);"></fa> Applications
                         </h3>
                     </div>
                 </a>
@@ -178,7 +184,7 @@
                 <a class="thumbnail" (click)="getTopTorrents(500)">
                     <div class="caption">
                         <h3>
-                            <fa name="film" style="color: palevioletred;"></fa> ...
+                            <fa name="film" style="color: palevioletrgb(241, 76, 76);"></fa> ...
                         </h3>
                     </div>
                 </a>
@@ -209,23 +215,31 @@
                     </div>
                     <div class="panel-body">
                         <h4>
-                            <fa style="color:red" name="bars"></fa> Category:
+                            <fa style="color:rgb(241, 76, 76)" name="bars"></fa> Category:
                             <span> {{topTorrent.category}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="magnet"></fa> Magnet:
+                            <fa style="color:rgb(128, 190, 128)" name="magnet"></fa> Magnet:
                             <span> <a href="{{topTorrent.magnet}}" class="btn btn-primary">Magnet Link</a></span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="users"></fa> Seeds:
+                            <fa style="color:rgb(241, 76, 76)" name="archive"></fa> Size:
+                            <span> {{topTorrent.size | convert}}</span>
+                        </h4>
+                        <h4>
+                            <fa style="color:rgb(241, 76, 76)" name="arrow-up"></fa> Seeders:
                             <span> {{topTorrent.seeds}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="upload"></fa> Uploaded at:
+                            <fa style="color:rgb(241, 76, 76)" name="arrow-down"></fa> Leechers:
+                            <span> {{topTorrent.leeches}}</span>
+                        </h4>
+                        <h4>
+                            <fa style="color:rgb(241, 76, 76)" name="upload"></fa> Uploaded at:
                             <span> {{topTorrent.time}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="user"></fa> Uploader:
+                            <fa style="color:rgb(241, 76, 76)" name="user"></fa> Uploader:
                             <span> {{topTorrent.uploader}}</span>
                         </h4>
                     </div>
@@ -273,7 +287,7 @@
                 <a class="thumbnail" (click)="getTop48Torrents(300)">
                     <div class="caption">
                         <h3>
-                            <fa name="rocket" style="color: red;"></fa>Applications
+                            <fa name="rocket" style="color: rgb(241, 76, 76);"></fa>Applications
                         </h3>
                     </div>
                 </a>
@@ -320,23 +334,31 @@
                     </div>
                     <div class="panel-body">
                         <h4>
-                            <fa style="color:red" name="bars"></fa> Category:
+                            <fa style="color:rgb(241, 76, 76)" name="bars"></fa> Category:
                             <span> {{top40Torrent.category}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="magnet"></fa> Magnet:
+                            <fa style="color:rgb(128, 190, 128)" name="magnet"></fa> Magnet:
                             <span> <a href="{{top40Torrent.magnet}}" class="btn btn-primary">Magnet Link</a></span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="users"></fa> Seeds:
+                            <fa style="color:rgb(241, 76, 76)" name="archive"></fa> Size:
+                            <span> {{top40Torrent.size | convert}}</span>
+                        </h4>
+                        <h4>
+                            <fa style="color:rgb(241, 76, 76)" name="arrow-up"></fa> Seeders:
                             <span> {{top40Torrent.seeds}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="upload"></fa> Uploaded at:
+                            <fa style="color:rgb(241, 76, 76)" name="arrow-down"></fa> Leeches:
+                            <span> {{top40Torrent.leeches}}</span>
+                        </h4>
+                        <h4>
+                            <fa style="color:rgb(241, 76, 76)" name="upload"></fa> Uploaded at:
                             <span> {{top40Torrent.time}}</span>
                         </h4>
                         <h4>
-                            <fa style="color:red" name="user"></fa> Uploader:
+                            <fa style="color:rgb(241, 76, 76)" name="user"></fa> Uploader:
                             <span> {{top40Torrent.uploader}}</span>
                         </h4>
                     </div>

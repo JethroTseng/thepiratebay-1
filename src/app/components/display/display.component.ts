@@ -22,7 +22,7 @@ loader: boolean;
     this.loader = true;
     const torrentUrl = `https://tpbc.herokuapp.com/recent/`;
     this.repos = this._http.get(torrentUrl).map(res => res).subscribe(res2 => {
-      console.log('Response: ' + res2);
+      // console.log('Response: ' + res2);
       this.torrents = <ITorrent[]> res2;
     });
     this.loader = false;
@@ -31,7 +31,7 @@ loader: boolean;
     this.loader = true;
     const torrentUrl = `https://tpbc.herokuapp.com/top/0`;
     this.repos = this._http.get(torrentUrl).map(res => res).subscribe(res2 => {
-      console.log('Response: ' + res2);
+      // console.log('Response: ' + res2);
       this.torrents = <ITorrent[]> res2;
     });
     this.loader = false;
@@ -40,7 +40,7 @@ loader: boolean;
     this.loader = true;
     const torrentUrl = `https://tpbc.herokuapp.com/top48h/0`;
     this.repos = this._http.get(torrentUrl).map(res => res).subscribe(res2 => {
-      console.log('Response: ' + res2);
+      // console.log('Response: ' + res2);
       this.torrents = <ITorrent[]> res2;
     });
     this.loader = false;

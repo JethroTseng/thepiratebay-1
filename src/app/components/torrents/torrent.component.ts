@@ -1,5 +1,4 @@
 import { AppError } from './../errors/app-error';
-import { Jsonp } from '@angular/http';
 import { ITorrent } from './../../interfaces/itorrent';
 import { Component, OnInit } from '@angular/core';
 import { PiratebayService } from '../../services/piratebay.service';
@@ -21,22 +20,11 @@ top40Torrents: any;
 searchTorrents: any;
 searchTerm: string;
 
-  constructor(private _jsonp: Jsonp, private _piratebay: PiratebayService) {}
+  constructor(private _piratebay: PiratebayService) {}
 
   ngOnInit() {
-    this.getTorrents();
+    // this.getTorrents();
   }
-
-  /* getTorrents() {
-    // const torrentUrl = `/recent/?callback=JSONP_CALLBACK`;
-    const torrentUrl = `/recent/?callback=__ng_jsonp__.__req${this.times}.finished`;
-    this.times++;
-    this._jsonp.request(torrentUrl, { method: 'Get' })
-    .subscribe(res2 => {
-      console.log(res2);
-    });
-    // console.log(this.torrent);
-  } */
 
   getTorrents() {
     this._piratebay.getTorrents()
@@ -65,7 +53,7 @@ searchTerm: string;
   }
 
   search2() {
-    console.log(this.searchTerm);
+    // console.log(this.searchTerm);
       this._piratebay.search2(this.searchTerm)
         .subscribe(res2 => {
         this.searchTorrents = <ITorrent[]> res2;
@@ -73,7 +61,7 @@ searchTerm: string;
   }
 
   divClicked() {
-    console.log('Div was clicked');
+    // console.log('Div was clicked');
   }
 
   searchAdvanced() {}

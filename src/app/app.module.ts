@@ -1,3 +1,4 @@
+import { StripunsafePipe } from './pipes/stripunsafe.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PiratebayService } from './services/piratebay.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,13 +15,16 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DisplayComponent } from './components/display/display.component';
 import {JsonpModule, Jsonp, Response} from '@angular/http';
+import { ConvertPipe } from './pipes/convert.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TorrentComponent,
     NavbarComponent,
-    DisplayComponent
+    DisplayComponent,
+    ConvertPipe,
+    StripunsafePipe
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Jsonp } from '@angular/http';
 import { NotFoundError } from '../components/errors/not-found-error';
 
 @Injectable()
@@ -14,22 +13,11 @@ export class PiratebayService implements OnInit {
 searchTerm: string;
 url = `https://tpbc.herokuapp.com`;
 
-  constructor(private _jsonp: Jsonp, private _http: HttpClient) {}
+  constructor(private _http: HttpClient) {}
 
   ngOnInit() {
     this.getTorrents();
   }
-
-  /* getTorrents() {
-    // const torrentUrl = `/recent/?callback=JSONP_CALLBACK`;
-    const torrentUrl = `/recent/?callback=__ng_jsonp__.__req${this.times}.finished`;
-    this.times++;
-    return this._jsonp.request(torrentUrl, { method: 'Get' })
-    .subscribe(res2 => {
-      console.log(res2);
-    });
-    // console.log(this.torrent);
-  } */
 
   getTorrents() {
     const torrentUrl = `${this.url}/recent/`;
@@ -45,7 +33,7 @@ url = `https://tpbc.herokuapp.com`;
   }
 
   search2(searchKeyword) {
-    console.log(searchKeyword);
+    // console.log(searchKeyword);
     if (searchKeyword.length > 0 || searchKeyword !== ' ') {
       const torrentUrl = `${this.url}/search/${searchKeyword}`;
       return this._http.get(torrentUrl);
@@ -53,7 +41,7 @@ url = `https://tpbc.herokuapp.com`;
   }
 
   divClicked() {
-    console.log('Div was clicked');
+    // console.log('Div was clicked');
   }
 
   searchAdvanced() {}
